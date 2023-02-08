@@ -20,6 +20,7 @@ Feature: Demo de cucumber.
         | EjemploNombre6 | 123456789 |
         | EjemploNombre7 | 123456789 |
         | EjemploNombre8 | 123456789 |
+        | nombreDiferente | 22 |
         
       
 

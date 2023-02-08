@@ -5,20 +5,19 @@ require('cypress-xpath') //Este require nos permite elegir elementos por el Xpat
 require('@4tw/cypress-drag-drop') //para usar el drag and drop.
 import"cypress-file-upload" //Plugin para subir imagenes a una web. 
 
-import ProyectoEjemplo_PO from "./PageObjectModelExample" //Estamos importando los métodos que hay en la clase PO.
-
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   }); //Una gran cantidad de páginas da error de este tipo. Con estas sentencias se arregla. 
 
-describe("",()=>{  //El describe es solo para describir que proyecto estamos realizando, se suele utilizar para el nombre del proyecto. 
+describe("Cargar datos desde Json",()=>{  //El describe es solo para describir que proyecto estamos realizando, se suele utilizar para el nombre del proyecto. 
 
-    const master = new ProyectoEjemplo_PO; //Creamos un objeto PO.
-
-it("Ejecutamos un método del PageObjecModel",()=>{  
-    master.visitHome("https://demoqa.com/automation-practice-form","ToolsQA") // le pasamos los parámetros.
-    master.cogerAlgo("#firstName", "texto variable")
-    master.metodoQueQuierasCrear()
+it("",()=>{ // Aquí está el test a ejecutar. Es una función de JavaScript como tal. 
+    cy.visit("https://demoqa.com/text-box") // Cy.visit sirve para visitar una web. 
+    cy.fixture("example.json").then(data =>{ //con cy.fixture accedemos a los archivos que tengamos dentro de fixture. Creamos el objeto "Data", para acceder a los elementos dentro del json.
+    cy.get("#userName").type(data.name)
+    cy.get("#userEmail").type(data.email)    
+    cy.get('#submit').click()
+    })
 })
 
 })
