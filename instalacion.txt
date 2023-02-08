@@ -1,4 +1,8 @@
-//Primera vez en cypress
+//Para utilizar este proyecto y futuros proyectos subidos a git con el node_modules en el .gitignore
+
+npm install
+
+//Para instalar cypress desde cero en un proyecto nuevo. 
 
 npm init
 
