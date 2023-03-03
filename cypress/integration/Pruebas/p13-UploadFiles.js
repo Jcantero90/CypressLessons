@@ -14,7 +14,7 @@ describe("Cargar archivos desde cypress",()=>{  //El describe es solo para descr
 it("Cargar imagen",()=>{ // Aquí está el test a ejecutar. Es una función de JavaScript como tal. 
   let img = "cypress/fixtures/imagen.jpg" //La imagen está en fixtures
   cy.visit("https://demoqa.com/automation-practice-form") 
-  cy.get("#uploadPicture").selectFile(img)
+  cy.get("#uploadPicture").selectFile(img)//con selecFile la imagen se cargará en la web. 
 })
 
 })
