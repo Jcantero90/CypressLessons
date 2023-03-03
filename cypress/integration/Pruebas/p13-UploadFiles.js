@@ -4,8 +4,6 @@ require('cypress-plugin-tab')
 //Esta es la funcion tab. Con el require y su previa instalación a traves de la terminal (npm install -D cypress-plugin-tab) podremos usarla.
 require('cypress-xpath')
 //Este require nos permite elegir elementos por el Xpath. 
-import"cypress-file-upload"
-//Plugin para subir imagenes a una web. 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
@@ -14,9 +12,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe("Cargar archivos desde cypress",()=>{  //El describe es solo para describir que proyecto estamos realizando, se suele utilizar para el nombre del proyecto. 
 
 it("Cargar imagen",()=>{ // Aquí está el test a ejecutar. Es una función de JavaScript como tal. 
-    let img = "imagen.jpg" //La imagen está en fixtures
-    cy.visit("https://demoqa.com/automation-practice-form") 
-    cy.get("#uploadPicture").attachFile(img) //Hemos seleccionado el botón para subir una imagen y hemos cargado una imagen. 
+  let img = "cypress/fixtures/imagen.jpg" //La imagen está en fixtures
+  cy.visit("https://demoqa.com/automation-practice-form") 
+  cy.get("#uploadPicture").selectFile(img)
 })
 
 })

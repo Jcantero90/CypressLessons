@@ -23,4 +23,12 @@ it("Prueba en DemoQA de carga de datos desde archivo Json",()=>{
     cy.get("#userName").type(data.name).tab().type(data.email)
 })
 
+it("Variables locales",()=>{ // Aquí está el test a ejecutar. Es una función de JavaScript como tal. 
+    cy.visit("https://demoqa.com/text-box") // Cy.visit sirve para visitar una web. 
+    cy.fixture("example.json").then(data_2 =>{ //con cy.fixture accedemos a los archivos que tengamos dentro de fixture. Creamos el objeto "Data_2", para acceder a los elementos dentro del json. Esta variable será local, por ende, solo este it puede usarlo. 
+    cy.get("#userName").type(data_2.name)
+    cy.get("#userEmail").type(data_2.email)    
+    })
+})
+
 })

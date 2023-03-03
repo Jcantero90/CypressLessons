@@ -36,10 +36,6 @@ Drag and Drop:
 
 npm install --save-dev @4tw/cypress-drag-drop
 
-Importar archivos:
-
-npm install --save-dev cypress-file-upload
-
 //Configuación de Cucumber 
 
 npm install --save-dev cypress-cucumber-preprocessor
