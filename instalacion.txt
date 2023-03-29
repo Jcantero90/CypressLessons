@@ -53,5 +53,32 @@ module.exports = (on, config) => {
 on('file:preprocessor', cucumber())
 }
 
+//Plugins de vaciar la carpeta downloads:
+
+npm i -D cypress-delete-downloads-folder
+
+Define en el plugin/index lo siguiente:
+
+const { removeDirectory } = require('cypress-delete-downloads-folder');
+module.exports = (on, config) => {
+  on('task', { removeDirectory })
+}
+
+necesitas en el test este require 
+
+require('cypress-delete-downloads-folder').addCustomCommand();
+
+y luego en el spec hacer así el afterEach:
+
+const { deleteDownloadsFolderAfterAll } = require('cypress-delete-downloads-folder');
+
+describe('delete downloads folder after all', () => {
+  deleteDownloadsFolderAfterAll()
+
+  it('should work', () => {})
+})
+
+
+
 
 
