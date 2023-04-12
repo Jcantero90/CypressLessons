@@ -23,3 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('visitAndValidateTitle',(url,title)=>{
+    cy.visit(url)
+    cy.title().should("eq",title)
+})
